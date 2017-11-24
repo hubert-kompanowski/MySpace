@@ -1,2 +1,2 @@
-hubert
 # MySpace
+Hubert Kompanowski 
