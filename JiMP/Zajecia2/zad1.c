@@ -1,3 +1,5 @@
+//Hubert Kompanowski
+
 #include <stdio.h>
 
 int main(void)
