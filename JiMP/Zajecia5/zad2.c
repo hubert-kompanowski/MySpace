@@ -1,3 +1,5 @@
+//Hubert Kompanowski - wyznacznik macierzy
+
 #include <stdio.h>
 #include <stdlib.h>
 
