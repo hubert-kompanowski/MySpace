@@ -13,11 +13,11 @@ for k in range(2,x+1):   # Tworzy listę liczb pierwszych
     if(tab[k]==1):
         liczby_pierwsze = liczby_pierwsze + [k]
         
-uniq = list(set(lista))  # Tworzy listę unikalnych wartosci z "listy" 
+uniq = list(set(lista))  #   Tworzy listę unikalnych wartosci z "listy" 
                             
-for l in range(len(uniq)):
-    if (lista.count(uniq[l])%2!=0):              
-        if (liczby_pierwsze.count(uniq[l])>0):       # Usuwa z "listy" wartosci ktore
-            for m in range(0,lista.count(uniq[l])):  # powtarzaja się nieparzysta ilość
-                lista.remove(uniq[l])                # razy i są liczbami pierwszymi
+for l in range(len(uniq)):                            # Pętla wszystkich liczb z uniq
+    if (lista.count(uniq[l])%2!=0):                   # Jeśli liczba nie jest parzysta
+        if (liczby_pierwsze.count(uniq[l])>0):        # i jeśli liczba występuje w liczby_pierwsze
+            for m in range(0,lista.count(uniq[l])):   # usuwa wszystkie takie liczby z "listy" 
+                lista.remove(uniq[l])                                                          
 print(lista)
