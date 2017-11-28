@@ -3,19 +3,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void Generowanie_macierzy (int tab[3][3]);
+void Wyswietlanie_macierzy (int tab[3][3]);
+
 int main(void)
 {
-    int tab[3][3]; 
-    int i,j,h,k,x,w;
-
-    for(i=0; i<3; i++)      
-    {
-        for(j=0; j<3; j++)
-        {   
-            x=rand()%10;
-            tab[i][j]=x;
-        }
-    }
 
     printf("Wylosowana macierz:\n");
 
@@ -33,3 +25,37 @@ int main(void)
 
     printf("%d\n", w);
 }
+
+
+
+
+void Generowanie_macierzy (int tab[3][3])
+{
+    int tab[3][3]; 
+    int i,j,h,k,x,w;
+
+    for(i=0; i<3; i++)      
+    {
+        for(j=0; j<3; j++)
+        {   
+            x=rand()%10;
+            tab[i][j]=x;
+        }
+    }
+}
+
+
+void Wyswietlanie_macierzy (int tab[3][3])
+{
+    printf("Wylosowana macierz:\n");
+
+    for(h=0; h<3; h++)   
+    {
+        for(k=0; k<3; k++)
+        {        
+            printf("%d ",tab[h][k]);
+        }
+        printf("\n");
+    }
+}
+

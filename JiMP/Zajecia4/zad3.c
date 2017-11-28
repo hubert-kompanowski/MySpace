@@ -5,7 +5,7 @@
 int main (void)
 {
     int a, b, c, d, e, f, g, h, i;
-    printf("Przpyisz wartości kolejnym kulkom\n");
+    printf("Przypisz wartości kolejnym kulkom\n");
     printf("Daj 8 jedynek a jednej kulce daj dwojke\n");
     printf("kazda wartosc zatwierdz wciskajac Enterem \n");
     scanf("%d \n %d \n %d \n %d \n %d \n %d \n %d \n %d \n %d",&a, &b, &c, &d, &e, &f, &g, &h, &i);

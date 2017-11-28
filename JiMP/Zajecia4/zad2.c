@@ -70,6 +70,5 @@ void zgadywanie_liczby (int liczba)
     {
         printf("Twoja liczba to 1\n");
     }
-        else printf("Twoja liczba to 2\n");
-    
+        else printf("Twoja liczba to 2\n");    
 }

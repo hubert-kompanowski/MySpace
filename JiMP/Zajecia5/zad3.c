@@ -22,7 +22,7 @@ int losowanie_macierzy(tab[2][2])
     {
         for(j=0; j<2; j++)
         {   
-            x=rand()%100;
+            x=rand()%200-100;
             tab[i][j]=x;
         }
     }
