@@ -18,16 +18,11 @@ int main(void)
 
 int zakres (int liczba_podana)
 {
-    if (liczba_podana < 0)
-    {
-        liczba_podana = -liczba_podana;
-    } 
-    if (liczba_podana==0) liczba_podana =+ 1;
+    if (liczba_podana < 0) liczba_podana = -liczba_podana;
 
-    if (liczba_podana > 10)
-    {
-        liczba_podana = liczba_podana % 10;
-    }
+    if (liczba_podana > 10) liczba_podana = liczba_podana % 10;
+
+    if (liczba_podana==0) liczba_podana =+ 1;
 
     return liczba_podana;
 }
@@ -70,5 +65,5 @@ void zgadywanie_liczby (int liczba)
     {
         printf("Twoja liczba to 1\n");
     }
-        else printf("Twoja liczba to 2\n");    
+    else printf("Twoja liczba to 2\n");    
 }
