@@ -13,29 +13,29 @@ int main (void)
 {
     int macierz_pierwsza[2][2];  
     int macierz_druga[2][2];  
-    int macierz_2x2x2[2][2][2];
-    int macierz_2x2_przemnozona[2][2];
 
     srand(time(NULL));
-    generowanie_macierzy(macierz_pierwsza);
-    generowanie_macierzy(macierz_druga);
+    generowanie_macierzy(2, 2, macierz_pierwsza);
+    generowanie_macierzy(2, 2, macierz_druga);
     
     printf("Macierz pierwsza:\n");
-    wyswietlanie_macierzy(macierz_pierwsza);
+    wyswietlanie_macierzy(2, 2, macierz_pierwsza);
 
     printf("\nMacierz druga:\n");
-    wyswietlanie_macierzy(macierz_druga);
-
+    wyswietlanie_macierzy(2, 2, macierz_druga);
+  
+    int macierz_2x2x2[2][2][2];
     konwesja_z_2x2_na_2x2x2(macierz_pierwsza, 0, macierz_2x2x2);
     konwesja_z_2x2_na_2x2x2(macierz_druga, 1, macierz_2x2x2);
 
+    int macierz_2x2_przemnozona[2][2];
     mnozenie_macierzy(macierz_2x2x2, macierz_2x2_przemnozona);
 
     printf("\nMacierz przemnozona:\n");
-    wyswietlanie_macierzy(macierz_2x2_przemnozona);
+    wyswietlanie_macierzy(2, 2, macierz_2x2_przemnozona);
 }
 
-void generowanie_macierzy(int tab[2][2])
+void generowanie_macierzy(int m, int n, int tab[m][n])
 {
     int i, j, x;
 
@@ -49,7 +49,7 @@ void generowanie_macierzy(int tab[2][2])
     }
 }
 
-void wyswietlanie_macierzy (int tab[2][2])
+void wyswietlanie_macierzy (int m, int n, int tab[m][n])
 {
     int i, j;
 
@@ -85,10 +85,10 @@ void mnozenie_macierzy(int tab[2][2][2], int tab_p[2][2])
         for(j=0; j<2; j++)
         {   
             if (1-i+j)
-            {
                 x=0;
-            }
-            else x=1;
+            else
+                x=1;
+
             tab_p[i][j]= tab[0][j][0] * tab[1][i*j][x] + tab[0][j][1] * tab[1][1][i];       
         }
     }

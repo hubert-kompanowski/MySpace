@@ -10,12 +10,12 @@ double wczytywanie_wartosci();
 
 int main(void)
 {
-    int numer_figury;
     printf("***Jakie pole chcesz liczyc***\n");
     printf("1.Kwadrat\n");
     printf("2.Prostokat\n");
     printf("3.Trojkat\n");
     printf("4.Kolo\n");
+    int numer_figury;
     scanf("%d", &numer_figury);
 
     switch (numer_figury)
@@ -54,8 +54,8 @@ double wczytywanie_wartosci()
 
 void kwadrat()
 {
-    double bok_kwadratu, pole_kwadratu, obwod_kwadratu;
     printf("Podaj bok kwadratu:\n");
+    double bok_kwadratu, pole_kwadratu, obwod_kwadratu;
     bok_kwadratu = wczytywanie_wartosci();
     pole_kwadratu = bok_kwadratu * bok_kwadratu;
     obwod_kwadratu = 4 * bok_kwadratu;
@@ -65,8 +65,8 @@ void kwadrat()
 
 void prostokat()
 {
-    double bok_a, bok_b, pole_prostokata, obwod_prostokata;
     printf("\nPodaj boki prostokata: \n");
+    double bok_a, bok_b, pole_prostokata, obwod_prostokata;
     bok_a = wczytywanie_wartosci();
     bok_b = wczytywanie_wartosci();
     pole_prostokata = bok_a * bok_b;
@@ -77,8 +77,8 @@ void prostokat()
 
 void trojkat()
 {
-    double bok_a, pole_trojkata, obwod_trojkata;
     printf("\nPodaj bok trojkata rownobocznego: ");
+    double bok_a, pole_trojkata, obwod_trojkata;
     bok_a = wczytywanie_wartosci();
     pole_trojkata = 0.25 * bok_a * bok_a * 1.73205;
     obwod_trojkata = 3 * bok_a;
@@ -88,8 +88,8 @@ void trojkat()
 
 void kolo()
 {
-    double promien, pole_kola, obwod_kola;
     printf("\nPodaj promien kola: ");
+    double promien, pole_kola, obwod_kola;
     promien = wczytywanie_wartosci();
     pole_kola = 3.14159 * promien * promien;
     obwod_kola = 2 * 3.14159 * promien;

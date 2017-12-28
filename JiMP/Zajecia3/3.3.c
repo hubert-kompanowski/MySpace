@@ -30,7 +30,7 @@ int main(void)
 void stopnie_na_radiany()
 {
     double stopnie, radiany;
-    double pi = 3.14159;
+    const double pi = 3.14159;
     printf("Podaj liczbe stopni: ");
     scanf("%lf", &stopnie);
     radiany = stopnie / 360 * 2 * pi;
@@ -40,7 +40,7 @@ void stopnie_na_radiany()
 void radiany_na_stopnie()
 {
     double stopnie, radiany;
-    double pi = 3.14159;
+    const double pi = 3.14159;
     printf("Podaj liczbe radianow: ");
     scanf("%lf", &radiany);
     stopnie = radiany * 360 /( 2 * pi);

@@ -20,7 +20,11 @@ int main(void)
         int n = 7; 
         
         srand(time(NULL));
-        printf("\n               Wybierz funkcje(podaj liczbe):\n               1.losowanie tablicy\n               2.wyswietlanie tablicy\n               3.liczenie sredniej\n               4.liczenie mediany\n               5.min element\n               6.maks element\n               7.wyjscie z petli\n");
+        printf("\n               Wybierz funkcje(podaj liczbe):\n               "
+                "1.losowanie tablicy\n               2.wyswietlanie tablicy\n               "
+                "3.liczenie sredniej\n               4.liczenie mediany\n               "
+                "5.min element\n               6.maks element\n               "
+                "7.wyjscie z petli\n");
         scanf("%d",&n);
         
         printf("\033[2J");   //Czyszczenie ekranu
@@ -29,22 +33,22 @@ int main(void)
         switch(n)
         {
             case 1:
-                losowanie_tablicy_10_liczb(tablica);
+                losowanie_tablicy_10_liczb(9, tablica);
                 break;
             case 2:
-                wyswietlanie_tablicy(tablica);
+                wyswietlanie_tablicy(9, tablica);
                 break;
             case 3:
-                liczenie_sredniej_liczb_z_tablicy(tablica);
+                liczenie_sredniej_liczb_z_tablicy(9, tablica);
                 break;
             case 4:
-                liczenie_medianej_liczb_z_tablicy(tablica);
+                liczenie_medianej_liczb_z_tablicy(9, tablica);
                 break;
             case 5:
-                wyswietlanie_min_elemntu(tablica);
+                wyswietlanie_min_elemntu(9, tablica);
                 break;
             case 6:
-                wyswietlanie_maks_elemntu(tablica);
+                wyswietlanie_maks_elemntu(9, tablica);
                 break;
             case 7:
                 return 0;
@@ -55,7 +59,7 @@ int main(void)
     }
 }
 
-void losowanie_tablicy_10_liczb(int tab[9])
+void losowanie_tablicy_10_liczb(int m, int tab[m])
 {
     for(int x=0; x<=9; x++)
     {
@@ -64,7 +68,7 @@ void losowanie_tablicy_10_liczb(int tab[9])
     printf("Wlosowano tablice.\n");
 }
 
-void wyswietlanie_tablicy(int tab[9])
+void wyswietlanie_tablicy(int m, int tab[m])
 {
     printf("tablica = [");
     for (int x=0; x<=9; x++)
@@ -74,7 +78,7 @@ void wyswietlanie_tablicy(int tab[9])
     printf("\b]\n");
 }
 
-void liczenie_sredniej_liczb_z_tablicy(int tab[9])
+void liczenie_sredniej_liczb_z_tablicy(int m, int tab[m])
 {
     double srednia;   
     double suma = 0;
@@ -86,7 +90,7 @@ void liczenie_sredniej_liczb_z_tablicy(int tab[9])
     printf("srednia = %g\n",srednia);
 }
 
-void liczenie_medianej_liczb_z_tablicy(int tab[9])
+void liczenie_medianej_liczb_z_tablicy(int m, int tab[m])
 {
     int schowek, zamiana;
     double mediana;
@@ -109,22 +113,24 @@ void liczenie_medianej_liczb_z_tablicy(int tab[9])
     printf("mediana = %g\n", mediana);
 }
 
-void wyswietlanie_min_elemntu(int tab[9])
+void wyswietlanie_min_elemntu(int m, int tab[m])
 {
     int min=tab[0];
     for (int x=0; x<=9; x++)
     {
-        if (tab[x] < min) min = tab[x];
+        if (tab[x] < min) 
+            min = tab[x];
     } 
     printf("minimalny element = %d\n",min);
 }
 
-void wyswietlanie_maks_elemntu(int tab[9])
+void wyswietlanie_maks_elemntu(int m, int tab[m])
 {
     int maks=tab[0];
     for (int x=0; x<=9; x++)
     {
-        if (tab[x] > maks) maks = tab[x];
+        if (tab[x] > maks) 
+            maks = tab[x];
     } 
     printf("maksymalny element = %d\n",maks);
 }

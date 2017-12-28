@@ -5,38 +5,43 @@
 void znak();
 void kod();
 
-int main(void)
+int main()
 {
-    int n;
-    printf("****Zamiana kod ASCII <==> znak****\nCo chcesz zamienić:\n1. kod\n2. znak\n");
-    scanf("%d",&n); 
-    switch(n)
+    while(1)
     {
-        case 1:
-            znak();
-            break;
-        case 2:
-            kod();
-            break;
-        default:
-            printf("Nie ma takiego numeru\n");
-            break;
+        int n;
+        printf("****Zamiana kod ASCII <==> znak****\nCo chcesz zamienić:\n1. kod\n2. znak\n3. wyjscie z petli\n");
+        scanf("%d",&n); 
+
+        switch(n)
+        {
+            case 1:
+                znak();
+                break;
+            case 2:
+                kod();
+                break;        
+            case 3:
+                return 0;
+            default:
+                printf("Nie ma takiego numeru\n");
+                break;
+        }
     }
 }
 
 void znak(void)
 {
     char znak, bialy;
-    printf("Podaj znak: \n");
+    printf("\nPodaj znak: ");
     scanf("%c%c",&bialy, &znak);
-    printf("Kod ASCII: %d \n", znak); 
-
+    printf("Kod ASCII: %d \n\n", znak); 
 }
 
 void kod(void)
 {
     int kod_ascii;
-    printf("Podaj kod ASCII: \n");
+    printf("\nPodaj kod ASCII: \n");
     scanf("%d", &kod_ascii);
-    printf("Znak to: %c \n", kod_ascii);
+    printf("Znak to: %c \n\n", kod_ascii);
 }
