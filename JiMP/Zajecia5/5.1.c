@@ -11,7 +11,7 @@ int main(void)
     int godzina_1[3], godzina_2[3];
     tworzenie_tablicy_z_godzina(godzina_1);
     tworzenie_tablicy_z_godzina(godzina_2);
-    int x = porownanie_dwoch(godzina_1, godzina_2);
+    int x = porownanie_dwoch(3, godzina_1, godzina_2);
 
     switch(x)
     {
@@ -62,9 +62,9 @@ int tworzenie_tablicy_z_godzina(int godzina[3])
     return godzina[3];
 }
 
-int porownanie_dwoch(int godzina1[3], int godzina2[3])
+int porownanie_dwoch(int x, int godzina1[x], int godzina2[x])
 {
-    for(int i=0; i<3; i++)
+    for(int i=0; i<x; i++)
     {
         if(godzina1[i] > godzina2[i])
             return 1;

@@ -1,33 +1,33 @@
-//
+#include <stdio.h>
 
-#include <stdio.h>     
-#include <stdarg.h>    
+int scanfo_printf();
 
-void scanfo_printf (int n, ...)
+int main()
 {
-    int i;
-    double val;
-    char* tekst;
+    int tablica[2];
+    scanfo_printf("Podaj krotszy bok prostokata: %d teraz podaj dluzszy: %d", 2, tablica);
+    
+    printf("\nkrotrzy bok = %d, dluzszy bok = %d\n", tablica[0], tablica[1]);
+}
 
-    va_list vl;
-    va_start(vl,n);
-    for (i=0;i<n;i++)
-    {
-        val=va_arg(vl,double);
-        tekst=va_arg(vl,char*);
-        printf("%s ", tekst);
-        printf("%lf ",val);
+int scanfo_printf(char* tekst, int x, int tablica[x])
+{ 
+    int i = 0;
+    int j = 0;
+    do
+    {   
+        if(tekst[i] != 37)  
+            printf("%c", tekst[i]); 
+        else
+        {
+            i++;
+            if(tekst[i] == 100)
+            {
+                scanf("%d", &tablica[j]);
+                j++;
+            }
+        }
+        i++;   
     }
-    va_end(vl);
-    printf ("\n");
+    while(tekst[i]);
 }
-
-int main (void)
-{
-    double zmienna1 = 3.14159;
-    double zmienna2 = 2.71828;
-    double zmienna3 = 1.41421;
-    scanfo_printf (3, "tekst", zmienna1, "tekst", zmienna2, "tekst", zmienna3);
-}
-
-

@@ -8,7 +8,7 @@ int ile_dni_ma_dany_misiac();
 
 int main(void)
 {   
-    printf("****Kalendarz****\n");
+    printf("   ****Kalendarz****\n");
     kalendarz();
 }
 

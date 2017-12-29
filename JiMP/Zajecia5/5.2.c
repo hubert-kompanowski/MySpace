@@ -12,12 +12,12 @@ int main(void)
 {
     int macierz[3][3];
     srand(time(NULL));
-    generowanie_macierzy(3, 3, macierz);
-    wyswietlanie_macierzy(3, 3, macierz);
-    wyznacznik_macierzy(3, 3, macierz);
+    generowanie_macierzy(3, macierz);
+    wyswietlanie_macierzy(3, macierz);
+    wyznacznik_macierzy(3, macierz);
 }
 
-void generowanie_macierzy(int m, int n, int tab[m][n])
+void generowanie_macierzy(int n, int tab[n][n])
 {
     int i, j, x;
 
@@ -31,7 +31,7 @@ void generowanie_macierzy(int m, int n, int tab[m][n])
     }
 }
 
-void wyswietlanie_macierzy(int m, int n, int tab[m][n])
+void wyswietlanie_macierzy(int n, int tab[n][n])
 {
     int h, k;
     printf("Wylosowana macierz:\n");
@@ -46,7 +46,7 @@ void wyswietlanie_macierzy(int m, int n, int tab[m][n])
     }
 }
 
-void wyznacznik_macierzy(int m, int n, int tab[m][n])
+void wyznacznik_macierzy(int n, int tab[n][n])
 {
     int w;
     printf("Wyznacznik macierzy:\n");

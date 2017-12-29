@@ -15,33 +15,33 @@ int main (void)
     int macierz_druga[2][2];  
 
     srand(time(NULL));
-    generowanie_macierzy(2, 2, macierz_pierwsza);
-    generowanie_macierzy(2, 2, macierz_druga);
+    generowanie_macierzy(2, macierz_pierwsza);
+    generowanie_macierzy(2, macierz_druga);
     
     printf("Macierz pierwsza:\n");
-    wyswietlanie_macierzy(2, 2, macierz_pierwsza);
+    wyswietlanie_macierzy(2, macierz_pierwsza);
 
     printf("\nMacierz druga:\n");
-    wyswietlanie_macierzy(2, 2, macierz_druga);
+    wyswietlanie_macierzy(2, macierz_druga);
   
     int macierz_2x2x2[2][2][2];
-    konwesja_z_2x2_na_2x2x2(macierz_pierwsza, 0, macierz_2x2x2);
-    konwesja_z_2x2_na_2x2x2(macierz_druga, 1, macierz_2x2x2);
+    konwesja_z_2x2_na_2x2x2(2, macierz_pierwsza, 0, macierz_2x2x2);
+    konwesja_z_2x2_na_2x2x2(2, macierz_druga, 1, macierz_2x2x2);
 
     int macierz_2x2_przemnozona[2][2];
-    mnozenie_macierzy(macierz_2x2x2, macierz_2x2_przemnozona);
+    mnozenie_macierzy(2, macierz_2x2x2, macierz_2x2_przemnozona);
 
     printf("\nMacierz przemnozona:\n");
-    wyswietlanie_macierzy(2, 2, macierz_2x2_przemnozona);
+    wyswietlanie_macierzy(2, macierz_2x2_przemnozona);
 }
 
-void generowanie_macierzy(int m, int n, int tab[m][n])
+void generowanie_macierzy(int n, int tab[n][n])
 {
     int i, j, x;
 
-    for(i=0; i<2; i++)      
+    for(i=0; i<n; i++)      
     {
-        for(j=0; j<2; j++)
+        for(j=0; j<n; j++)
         {   
             x=rand()%200-100;
             tab[i][j]=x;
@@ -49,13 +49,13 @@ void generowanie_macierzy(int m, int n, int tab[m][n])
     }
 }
 
-void wyswietlanie_macierzy (int m, int n, int tab[m][n])
+void wyswietlanie_macierzy (int n, int tab[n][n])
 {
     int i, j;
 
-    for(i=0; i<2; i++)   
+    for(i=0; i<n; i++)   
     {
-        for(j=0; j<2; j++)
+        for(j=0; j<n; j++)
         {        
             printf("%d ",tab[i][j]);
         }
@@ -63,26 +63,26 @@ void wyswietlanie_macierzy (int m, int n, int tab[m][n])
     }
 }
 
-void konwesja_z_2x2_na_2x2x2(int tab2[2][2], int numer, int tab3[2][2][2])
+void konwesja_z_2x2_na_2x2x2(int n, int tab2[n][n], int numer, int tab3[n][n][n])
 {
     int i, j;
 
-    for(i=0; i<2; i++)      
+    for(i=0; i<n; i++)      
     {
-        for(j=0; j<2; j++)
+        for(j=0; j<n; j++)
         {   
             tab3[numer][i][j]=tab2[i][j];
         }
     }
 }
 
-void mnozenie_macierzy(int tab[2][2][2], int tab_p[2][2])
+void mnozenie_macierzy(int n, int tab[n][n][n], int tab_p[n][n])
 {
         int i, j, x;
 
-    for(i=0; i<2; i++)      
+    for(i=0; i<n; i++)      
     {
-        for(j=0; j<2; j++)
+        for(j=0; j<n; j++)
         {   
             if (1-i+j)
                 x=0;
