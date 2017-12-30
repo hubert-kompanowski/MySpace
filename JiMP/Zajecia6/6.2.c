@@ -4,7 +4,7 @@
 #include <time.h>
 
 void kalendarz();
-int ile_dni_ma_dany_misiac();
+int ile_dni_ma_dany_miesiac(int rok, int miesiac, int dni);
 
 int main(void)
 {   
@@ -19,29 +19,27 @@ void kalendarz(void)
     time(&liczba_sekund);
     localtime_r(&liczba_sekund, &struktura);
     
-    int dni;
-    int rok = struktura.tm_year;    
-    int msc = struktura.tm_mon+1;
+    int rok = struktura.tm_year+1900;   
+    int miesiac = struktura.tm_mon+1;
     int dzien = struktura.tm_mday;
 
-    dni = ile_dni_ma_dany_misiac(rok, msc, dni);    
-
+    int dni = ile_dni_ma_dany_miesiac(rok, miesiac, dni);
     int x = 1;
     while(x <= dni)
     {   
         if (x<=9)
         {        
             if (x==dzien)
-                printf("[%d] ",x);
+                printf("[%2d]",x);
             else 
-                printf(" %d  ",x);
+                printf(" %2d ",x);
         }
         else
         {    
             if (x==dzien) 
-                printf("[%d]",x);
+                printf("[%2d]",x);
             else 
-                printf(" %d ",x);
+                printf(" %2d ",x);
         }
  
         if (x%7 == 0 || x==dni) 
@@ -50,18 +48,29 @@ void kalendarz(void)
     }    
 }
 
-int ile_dni_ma_dany_misiac(int rok, int msc, int dni)
+int ile_dni_ma_dany_miesiac(int rok, int miesiac, int dni)
 {
-    if(rok%4==0 && msc==2)
+    if(rok%4==0 && miesiac==2)
     {
-        dni = 29;
-        return dni;
+        if(rok%400==0)
+        {        
+            dni = 29;
+            return dni;
+        }
+        else
+        {
+            if(rok%100!=0)
+            {   
+                dni = 29;
+                return dni;
+            }
+        }
     }   
 
-    if(msc==1 || msc==3 || msc==5 || msc==7 || msc==8 || msc==10 || msc==12)
+    if(miesiac==1 || miesiac==3 || miesiac==5 || miesiac==7 || miesiac==8 || miesiac==10 || miesiac==12)
         dni = 31;
     else 
-        if(msc==2) 
+        if(miesiac==2) 
             dni = 28;
         else 
             dni = 30;

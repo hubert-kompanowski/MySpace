@@ -4,9 +4,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-void generowanie_macierzy();
-void wyswietlanie_macierzy();
-void wyznacznik_macierzy(); 
+void generowanie_macierzy(int rozmiar, int tab[rozmiar][rozmiar]);
+void wyswietlanie_macierzy(int rozmiar, int tab[rozmiar][rozmiar]);
+void wyznacznik_macierzy(int rozmiar, int tab[rozmiar][rozmiar]); 
 
 int main(void)
 {
@@ -17,13 +17,13 @@ int main(void)
     wyznacznik_macierzy(3, macierz);
 }
 
-void generowanie_macierzy(int n, int tab[n][n])
+void generowanie_macierzy(int rozmiar, int tab[rozmiar][rozmiar])
 {
     int i, j, x;
 
-    for(i=0; i<3; i++)      
+    for(i=0; i<rozmiar; ++i)      
     {
-        for(j=0; j<3; j++)
+        for(j=0; j<rozmiar; ++j)
         {   
             x=rand()%10;
             tab[i][j]=x;
@@ -31,14 +31,14 @@ void generowanie_macierzy(int n, int tab[n][n])
     }
 }
 
-void wyswietlanie_macierzy(int n, int tab[n][n])
+void wyswietlanie_macierzy(int rozmiar, int tab[rozmiar][rozmiar])
 {
     int h, k;
     printf("Wylosowana macierz:\n");
 
-    for(h=0; h<3; h++)   
+    for(h=0; h<rozmiar; ++h)   
     {
-        for(k=0; k<3; k++)
+        for(k=0; k<rozmiar; ++k)
         {        
             printf("%d ",tab[h][k]);
         }
@@ -46,7 +46,7 @@ void wyswietlanie_macierzy(int n, int tab[n][n])
     }
 }
 
-void wyznacznik_macierzy(int n, int tab[n][n])
+void wyznacznik_macierzy(int rozmiar, int tab[rozmiar][rozmiar])
 {
     int w;
     printf("Wyznacznik macierzy:\n");

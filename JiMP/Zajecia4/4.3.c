@@ -28,7 +28,8 @@ void wazenie_kulek(int kulka[9])
         else 
             if (kulka[1] < kulka[2])
                 printf("kulka numer 2\n");
-            else printf("kulka numer 3\n");
+            else 
+                printf("kulka numer 3\n");
     else 
         if (kulka[1]+kulka[2]+kulka[3] < kulka[4]+kulka[5]+kulka[6])
             if (kulka[4] > kulka[5])   

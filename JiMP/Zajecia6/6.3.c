@@ -4,12 +4,13 @@
 #include <stdlib.h>
 #include <time.h>
 
-void losowanie_tablicy_10_liczb();
-void wyswietlanie_tablicy();
-void liczenie_sredniej_liczb_z_tablicy();
-void liczenie_medianej_liczb_z_tablicy();
-void wyswietlanie_min_elemntu();
-void wyswietlanie_maks_elemntu();
+void losowanie_tablicy_10_liczb(int m, int tab[m]);
+void wyswietlanie_tablicy(int m, int tab[m]);
+void liczenie_sredniej_liczb_z_tablicy(int m, int tab[m]);
+void liczenie_medianej_liczb_z_tablicy(int m, int tab[m]);
+void wyswietlanie_min_elemntu(int m, int tab[m]);
+void wyswietlanie_maks_elemntu(int m, int tab[m]);
+void czyszczenie_ekranu();
 
 int main(void)
 {
@@ -17,38 +18,38 @@ int main(void)
     
     while (1)
     {   
-        int n = 7; 
-        
         srand(time(NULL));
         printf("\n               Wybierz funkcje(podaj liczbe):\n               "
                 "1.losowanie tablicy\n               2.wyswietlanie tablicy\n               "
                 "3.liczenie sredniej\n               4.liczenie mediany\n               "
                 "5.min element\n               6.maks element\n               "
                 "7.wyjscie z petli\n");
-        scanf("%d",&n);
+
+        int numer_menu = 7; 
+        scanf("%d",&numer_menu);
         
-        printf("\033[2J");   //Czyszczenie ekranu
-        printf("\033[0;0f");
-    
-        switch(n)
+        czyszczenie_ekranu();
+
+        int wielkosc_tablicy = 9;
+        switch(numer_menu)
         {
             case 1:
-                losowanie_tablicy_10_liczb(9, tablica);
+                losowanie_tablicy_10_liczb(wielkosc_tablicy, tablica);
                 break;
             case 2:
-                wyswietlanie_tablicy(9, tablica);
+                wyswietlanie_tablicy(wielkosc_tablicy, tablica);
                 break;
             case 3:
-                liczenie_sredniej_liczb_z_tablicy(9, tablica);
+                liczenie_sredniej_liczb_z_tablicy(wielkosc_tablicy, tablica);
                 break;
             case 4:
-                liczenie_medianej_liczb_z_tablicy(9, tablica);
+                liczenie_medianej_liczb_z_tablicy(wielkosc_tablicy, tablica);
                 break;
             case 5:
-                wyswietlanie_min_elemntu(9, tablica);
+                wyswietlanie_min_elemntu(wielkosc_tablicy, tablica);
                 break;
             case 6:
-                wyswietlanie_maks_elemntu(9, tablica);
+                wyswietlanie_maks_elemntu(wielkosc_tablicy, tablica);
                 break;
             case 7:
                 return 0;
@@ -61,7 +62,7 @@ int main(void)
 
 void losowanie_tablicy_10_liczb(int m, int tab[m])
 {
-    for(int x=0; x<=9; x++)
+    for(int x=0; x<=m; x++)
     {
         tab[x] = rand()%100;
     }
@@ -71,7 +72,7 @@ void losowanie_tablicy_10_liczb(int m, int tab[m])
 void wyswietlanie_tablicy(int m, int tab[m])
 {
     printf("tablica = [");
-    for (int x=0; x<=9; x++)
+    for (int x=0; x<=m; x++)
     {
         printf("%d, ",tab[x]);
     } 
@@ -82,7 +83,7 @@ void liczenie_sredniej_liczb_z_tablicy(int m, int tab[m])
 {
     double srednia;   
     double suma = 0;
-    for (int x=0; x<=9; x++)
+    for (int x=0; x<=m; x++)
     {
         suma += tab[x];
     } 
@@ -97,7 +98,7 @@ void liczenie_medianej_liczb_z_tablicy(int m, int tab[m])
     do
     {
         zamiana = 0;
-        for (int i=0; i<9; i++)
+        for (int i=0; i<m; i++)
         {
             if (tab[i] > tab[i+1])
             {
@@ -116,7 +117,7 @@ void liczenie_medianej_liczb_z_tablicy(int m, int tab[m])
 void wyswietlanie_min_elemntu(int m, int tab[m])
 {
     int min=tab[0];
-    for (int x=0; x<=9; x++)
+    for (int x=0; x<=m; x++)
     {
         if (tab[x] < min) 
             min = tab[x];
@@ -127,11 +128,17 @@ void wyswietlanie_min_elemntu(int m, int tab[m])
 void wyswietlanie_maks_elemntu(int m, int tab[m])
 {
     int maks=tab[0];
-    for (int x=0; x<=9; x++)
+    for (int x=0; x<=m; x++)
     {
         if (tab[x] > maks) 
             maks = tab[x];
     } 
     printf("maksymalny element = %d\n",maks);
+}
+
+void czyszczenie_ekranu()
+{
+    printf("\033[2J");   
+    printf("\033[0;0f");
 }
 

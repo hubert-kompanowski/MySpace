@@ -2,15 +2,15 @@
 
 #include <stdio.h>
 
-void sprawdzenie_poprawnosci();
-int tworzenie_tablicy_z_godzina();
-int porownanie_dwoch();
+void sprawdzenie_poprawnosci(int wielkosc_tablicy, int godzina[wielkosc_tablicy]);
+void tworzenie_tablicy_z_godzina(int wielkosc_tablicy, int godzina[wielkosc_tablicy]);
+int porownanie_dwoch(int wielkosc_tablicy, int godzina1[wielkosc_tablicy], int godzina2[wielkosc_tablicy]);
 
 int main(void)
 {
     int godzina_1[3], godzina_2[3];
-    tworzenie_tablicy_z_godzina(godzina_1);
-    tworzenie_tablicy_z_godzina(godzina_2);
+    tworzenie_tablicy_z_godzina(3, godzina_1);
+    tworzenie_tablicy_z_godzina(3, godzina_2);
     int x = porownanie_dwoch(3, godzina_1, godzina_2);
 
     switch(x)
@@ -27,7 +27,7 @@ int main(void)
     }
 }
 
-void sprawdzenie_poprawnosci(int x, int godzina[x])
+void sprawdzenie_poprawnosci(int wielkosc_tablicy, int godzina[wielkosc_tablicy])
 {
     while(godzina[0]<0 || godzina[0]>24)
     {
@@ -46,25 +46,24 @@ void sprawdzenie_poprawnosci(int x, int godzina[x])
     }
 }
 
-int tworzenie_tablicy_z_godzina(int godzina[3])
+void tworzenie_tablicy_z_godzina(int wielkosc_tablicy, int godzina[wielkosc_tablicy])
 {
     godzina[0] = godzina[1] = godzina[2] = 0;
     printf("Wpisz po kolei godzine, minute i sekunde\n");
     printf("godziny = ");
     scanf("%d", &godzina[0]);
-    sprawdzenie_poprawnosci(3, godzina);
+    sprawdzenie_poprawnosci(wielkosc_tablicy, godzina);
     printf("minuty = ");
     scanf("%d", &godzina[1]);
-    sprawdzenie_poprawnosci(3, godzina);    
+    sprawdzenie_poprawnosci(wielkosc_tablicy, godzina);    
     printf("sekundy = ");
     scanf("%d", &godzina[2]);
-    sprawdzenie_poprawnosci(3, godzina);
-    return godzina[3];
+    sprawdzenie_poprawnosci(wielkosc_tablicy, godzina);
 }
 
-int porownanie_dwoch(int x, int godzina1[x], int godzina2[x])
+int porownanie_dwoch(int wielkosc_tablicy, int godzina1[wielkosc_tablicy], int godzina2[wielkosc_tablicy])
 {
-    for(int i=0; i<x; i++)
+    for(int i=0; i<wielkosc_tablicy; i++)
     {
         if(godzina1[i] > godzina2[i])
             return 1;

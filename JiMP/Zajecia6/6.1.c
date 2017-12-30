@@ -2,17 +2,18 @@
 
 #include <stdio.h>
 
-void znak();
-void kod();
+void znak(void);
+void kod(void);
+void czyszczenie_ekranu();
 
 int main()
 {
     while(1)
     {
         int n;
-        printf("****Zamiana kod ASCII <==> znak****\nCo chcesz zamienić:\n1. kod\n2. znak\n3. wyjscie z petli\n");
+        printf("****Zamiana kod ASCII <==> znak****\nCo chcesz zamienić:\n1. znak\n2. kod\n3. wyjscie z petli\n");
         scanf("%d",&n); 
-
+        czyszczenie_ekranu();
         switch(n)
         {
             case 1:
@@ -45,3 +46,10 @@ void kod(void)
     scanf("%d", &kod_ascii);
     printf("Znak to: %c \n\n", kod_ascii);
 }
+
+void czyszczenie_ekranu()
+{
+    printf("\033[2J");   
+    printf("\033[0;0f");
+}
+
