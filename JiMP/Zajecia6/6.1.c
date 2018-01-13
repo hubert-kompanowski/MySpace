@@ -12,7 +12,7 @@ int main()
     {
         int n;
         printf("****Zamiana kod ASCII <==> znak****\nCo chcesz zamienić:\n1. znak\n2. kod\n3. wyjscie z petli\n");
-        scanf("%d",&n); 
+        scanf("%d", &n); 
         czyszczenie_ekranu();
         switch(n)
         {
@@ -33,9 +33,10 @@ int main()
 
 void znak(void)
 {
-    char znak, bialy;
+    char znak;
     printf("\nPodaj znak: ");
-    scanf("%c%c",&bialy, &znak);
+    getchar();
+    scanf("%c", &znak);
     printf("Kod ASCII: %d \n\n", znak); 
 }
 

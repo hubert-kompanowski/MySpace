@@ -2,13 +2,13 @@
 
 #include <stdio.h>
 
-void sortowanie_babelkowe();
-void wyswietlanie_tablicy_A();
-void wyswietlanie_tablicy_B();
+void sortowanie_babelkowe(int m, int* tablica[m]);
+void wyswietlanie_tablicy_A(int x, int tablica[x]);
+void wyswietlanie_tablicy_B(int x, int* tablica[x]);
 
 int main()
 {
-    int tablica[10] = {3, 5, 1, 7, 2, 8 ,9 ,4, 6, 0};
+    int tablica[10] = {3, 5, 1, 7, 2, 8, 9, 4, 6, 0};
     int* tablica_wskaznikow[10];
 
     for(int j=0; j<=9; j++)

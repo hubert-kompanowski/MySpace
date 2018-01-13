@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-void losowanie_tablicy_10_liczb(int m, int tab[m]);
+void losowanie_tablicy_liczb(int m, int tab[m]);
 void wyswietlanie_tablicy(int m, int tab[m]);
 void liczenie_sredniej_liczb_z_tablicy(int m, int tab[m]);
 void liczenie_medianej_liczb_z_tablicy(int m, int tab[m]);
@@ -14,8 +14,10 @@ void czyszczenie_ekranu();
 
 int main(void)
 {
-    int tablica[9];
-    
+    const int wielkosc_tablicy = 9;
+    int tablica[wielkosc_tablicy];
+
+
     while (1)
     {   
         srand(time(NULL));
@@ -30,11 +32,10 @@ int main(void)
         
         czyszczenie_ekranu();
 
-        int wielkosc_tablicy = 9;
         switch(numer_menu)
         {
             case 1:
-                losowanie_tablicy_10_liczb(wielkosc_tablicy, tablica);
+                losowanie_tablicy_liczb(wielkosc_tablicy, tablica);
                 break;
             case 2:
                 wyswietlanie_tablicy(wielkosc_tablicy, tablica);
@@ -60,7 +61,7 @@ int main(void)
     }
 }
 
-void losowanie_tablicy_10_liczb(int m, int tab[m])
+void losowanie_tablicy_liczb(int m, int tab[m])
 {
     for(int x=0; x<=m; x++)
     {
@@ -76,7 +77,7 @@ void wyswietlanie_tablicy(int m, int tab[m])
     {
         printf("%d, ",tab[x]);
     } 
-    printf("\b]\n");
+    printf("\b\b]\n");
 }
 
 void liczenie_sredniej_liczb_z_tablicy(int m, int tab[m])

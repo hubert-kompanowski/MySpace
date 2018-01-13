@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-double funkcja();
+double funkcja(int *wsk1, int *wsk2);
 
 int main(void)
 {

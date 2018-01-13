@@ -38,16 +38,11 @@ int main (void)
 
 void generowanie_macierzy(int rozmiar, int tab[rozmiar][rozmiar])
 {
-    int i, j, x;
+    int i, j;
 
     for(i=0; i<rozmiar; i++)      
-    {
         for(j=0; j<rozmiar; j++)
-        {   
-            x=rand()%200-100;
-            tab[i][j]=x;
-        }
-    }
+            tab[i][j] = rand()%200-100;
 }
 
 void wyswietlanie_macierzy(int rozmiar, int tab[rozmiar][rozmiar])
@@ -56,10 +51,9 @@ void wyswietlanie_macierzy(int rozmiar, int tab[rozmiar][rozmiar])
 
     for(i=0; i<rozmiar; i++)   
     {
-        for(j=0; j<rozmiar; j++)
-        {        
+        for(j=0; j<rozmiar; j++) 
             printf("%d ",tab[i][j]);
-        }
+
         printf("\n");
     }
 }
@@ -69,28 +63,23 @@ void konwesja_z_2x2_na_2x2x2(int rozmiar, int tab2[rozmiar][rozmiar], int numer,
     int i, j;
 
     for(i=0; i<rozmiar; i++)      
-    {
-        for(j=0; j<rozmiar; j++)
-        {   
+        for(j=0; j<rozmiar; j++)  
             tab3[numer][i][j]=tab2[i][j];
-        }
-    }
 }
 
 void mnozenie_macierzy(int rozmiar, int tab[rozmiar][rozmiar][rozmiar], int tab_p[rozmiar][rozmiar])
 {
-        int i, j, x;
-
+    int i, j, zaprzeczenie_implikacji;
     for(i=0; i<rozmiar; i++)      
     {
         for(j=0; j<rozmiar; j++)
         {   
             if (1-i+j)
-                x=0;
+                zaprzeczenie_implikacji = 0;
             else
-                x=1;
+                zaprzeczenie_implikacji = 1;
 
-            tab_p[i][j]= tab[0][j][0] * tab[1][i*j][x] + tab[0][j][1] * tab[1][1][i];       
+            tab_p[i][j]= tab[0][j][0] * tab[1][i*j][zaprzeczenie_implikacji] + tab[0][j][1] * tab[1][1][i];       
         }
     }
 }

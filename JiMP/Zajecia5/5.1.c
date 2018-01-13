@@ -8,10 +8,11 @@ int porownanie_dwoch(int wielkosc_tablicy, int godzina1[wielkosc_tablicy], int g
 
 int main(void)
 {
-    int godzina_1[3], godzina_2[3];
-    tworzenie_tablicy_z_godzina(3, godzina_1);
-    tworzenie_tablicy_z_godzina(3, godzina_2);
-    int x = porownanie_dwoch(3, godzina_1, godzina_2);
+    int rozmiar = 3;
+    int godzina_1[rozmiar], godzina_2[rozmiar];
+    tworzenie_tablicy_z_godzina(rozmiar, godzina_1);
+    tworzenie_tablicy_z_godzina(rozmiar, godzina_2);
+    int x = porownanie_dwoch(rozmiar, godzina_1, godzina_2);
 
     switch(x)
     {

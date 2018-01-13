@@ -3,12 +3,21 @@
 #include <stdio.h>
 #include <time.h>
 
-void kalendarz();
+void kalendarz(void);
 int ile_dni_ma_dany_miesiac(int rok, int miesiac, int dni);
+void wyswietlanie_aktualnego_misiaca_i_roku(int miesiac, int rok);
 
 int main(void)
 {   
-    printf("   ****Kalendarz****\n");
+    time_t liczba_sekund;
+    struct tm struktura;
+    time(&liczba_sekund);
+    localtime_r(&liczba_sekund, &struktura);
+
+    int rok = struktura.tm_year+1900;   
+    int miesiac = struktura.tm_mon+1;
+    printf("     ****Kalendarz****\n\n");
+    wyswietlanie_aktualnego_misiaca_i_roku(miesiac, rok);
     kalendarz();
 }
 
@@ -24,8 +33,8 @@ void kalendarz(void)
     int dzien = struktura.tm_mday;
 
     int dni = ile_dni_ma_dany_miesiac(rok, miesiac, dni);
-    int x = 1;
-    while(x <= dni)
+    
+    for(int x = 1; x<=dni; x++)
     {   
         if (x<=9)
         {        
@@ -44,7 +53,6 @@ void kalendarz(void)
  
         if (x%7 == 0 || x==dni) 
             printf("\n");
-        x++;
     }    
 }
 
@@ -75,4 +83,12 @@ int ile_dni_ma_dany_miesiac(int rok, int miesiac, int dni)
         else 
             dni = 30;
     return dni;
+}
+
+void wyswietlanie_aktualnego_misiaca_i_roku(int miesiac, int rok)
+{
+    char* tablica_miesiecy[12] = {"styczen", "luty", "marzec", "kwiecien", "maj", "czerwiec", "lipiec",
+                  "sierpien", "wrzesien", "pazdziernik", "listopad", "grudzien"};
+    printf("       %s, %d\n", tablica_miesiecy[miesiac-1], rok);
+
 }

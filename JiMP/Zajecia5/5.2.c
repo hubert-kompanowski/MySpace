@@ -48,8 +48,7 @@ void wyswietlanie_macierzy(int rozmiar, int tab[rozmiar][rozmiar])
 
 void wyznacznik_macierzy(int rozmiar, int tab[rozmiar][rozmiar])
 {
-    int w;
     printf("Wyznacznik macierzy:\n");
-    w = tab[0][0]*tab[1][1]*tab[2][2] + tab[1][0]*tab[2][1]*tab[0][2] + tab[2][0]*tab[0][1]*tab[1][2] - tab[1][0]*tab[0][1]*tab[2][2] - tab[0][0]*tab[2][1]*tab[1][2] - tab[2][0]*tab[1][1]*tab[0][2];
+    int w = tab[0][0]*tab[1][1]*tab[2][2] + tab[1][0]*tab[2][1]*tab[0][2] + tab[2][0]*tab[0][1]*tab[1][2] - tab[1][0]*tab[0][1]*tab[2][2] - tab[0][0]*tab[2][1]*tab[1][2] - tab[2][0]*tab[1][1]*tab[0][2];
     printf("%d\n", w);
 }
