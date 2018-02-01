@@ -16,28 +16,25 @@ int main()
     int bok_2;
     scanfo_printf_2_0("Podaj krotszy bok prostokata: %d teraz podaj dluzszy: %d", &bok_1, &bok_2);
     printf("\nkrotszy bok = %d, dluzszy bok = %d\n", bok_1, bok_2);
-
 }
 
 void scanfo_printf(char* tekst, int ilosc_argumentow, int tablica[ilosc_argumentow])
 { 
-    int j = 0, i = 0;
-    do
+    int j = 0;
+    for(int i = 0; tekst[i]; i++)
     {   
-        if(tekst[i] != 37)  
+        if(tekst[i] != '%')  
             printf("%c", tekst[i]); 
         else
         {
             i++;
-            if(tekst[i] == 100)
+            if(tekst[i] == 'd')
             {
                 scanf("%d", &tablica[j]);
                 j++;
             }
         }
-        i++;   
     }
-    while(tekst[i]);
 }
 
 void scanfo_printf_2_0(char* tekst, ...)
@@ -46,24 +43,22 @@ void scanfo_printf_2_0(char* tekst, ...)
     va_start(element, tekst);
     int* liczba;
 
-    int j = 0, i = 0;
-    do
+    int j = 0;
+    for(int i = 0; tekst[i]; i++)
     {   
-        if(tekst[i] != 37)  
+        if(tekst[i] != '%')  
             printf("%c", tekst[i]); 
         else
         {
             i++;
-            if(tekst[i] == 100)
+            if(tekst[i] == 'd')
             {
                 liczba = va_arg(element, int*);
                 scanf("%d", liczba);
                 j++;
             }
-        }
-        i++;   
+        }   
     }
-    while(tekst[i]);
 
     va_end (element);
 }

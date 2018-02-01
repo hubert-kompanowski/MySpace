@@ -121,7 +121,6 @@ void liczenie_mediany(int* wskaznik_wartosci, int rozmiar)
         printf("Mediana %d %o %X\n", (int)mediana, (int)mediana, (int)mediana);
     else
         printf("Mediana %g\n", mediana);
-
 }
 
 void sortowanie_tablicy(int* wskaznik_wartosci, int rozmiar)

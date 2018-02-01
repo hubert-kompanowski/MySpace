@@ -6,16 +6,13 @@
 void kalendarz(void);
 int ile_dni_ma_dany_miesiac(int rok, int miesiac, int dni);
 void wyswietlanie_aktualnego_misiaca_i_roku(int miesiac, int rok);
+int aktualny_rok_i_miesiac_i_dzien(char* wybor);
 
 int main(void)
 {   
-    time_t liczba_sekund;
-    struct tm struktura;
-    time(&liczba_sekund);
-    localtime_r(&liczba_sekund, &struktura);
+    const int rok = aktualny_rok_i_miesiac_i_dzien("rok");
+    const int miesiac = aktualny_rok_i_miesiac_i_dzien("miesiac");
 
-    int rok = struktura.tm_year+1900;   
-    int miesiac = struktura.tm_mon+1;
     printf("     ****Kalendarz****\n\n");
     wyswietlanie_aktualnego_misiaca_i_roku(miesiac, rok);
     kalendarz();
@@ -23,16 +20,11 @@ int main(void)
 
 void kalendarz(void)
 {   
-    time_t liczba_sekund;
-    struct tm struktura;
-    time(&liczba_sekund);
-    localtime_r(&liczba_sekund, &struktura);
-    
-    int rok = struktura.tm_year+1900;   
-    int miesiac = struktura.tm_mon+1;
-    int dzien = struktura.tm_mday;
+    const int rok = aktualny_rok_i_miesiac_i_dzien("rok");
+    const int miesiac = aktualny_rok_i_miesiac_i_dzien("miesiac");
+    const int dzien = aktualny_rok_i_miesiac_i_dzien("dzien");
 
-    int dni = ile_dni_ma_dany_miesiac(rok, miesiac, dni);
+    const int dni = ile_dni_ma_dany_miesiac(rok, miesiac, dni);
     
     for(int x = 1; x<=dni; x++)
     {   
@@ -87,8 +79,29 @@ int ile_dni_ma_dany_miesiac(int rok, int miesiac, int dni)
 
 void wyswietlanie_aktualnego_misiaca_i_roku(int miesiac, int rok)
 {
-    char* tablica_miesiecy[12] = {"styczen", "luty", "marzec", "kwiecien", "maj", "czerwiec", "lipiec",
+    char* const tablica_miesiecy[12] = {"styczen", "luty", "marzec", "kwiecien", "maj", "czerwiec", "lipiec",
                   "sierpien", "wrzesien", "pazdziernik", "listopad", "grudzien"};
     printf("       %s, %d\n", tablica_miesiecy[miesiac-1], rok);
 
 }
+
+int aktualny_rok_i_miesiac_i_dzien(char* wybor)
+{
+    time_t liczba_sekund;
+    struct tm struktura;
+    time(&liczba_sekund);
+    localtime_r(&liczba_sekund, &struktura);
+
+    const int rok = struktura.tm_year+1900;   
+    const int miesiac = struktura.tm_mon+1;
+    const int dzien = struktura.tm_mday;
+    
+    if(wybor == "rok")
+        return rok;
+    if(wybor == "miesiac")
+        return miesiac;
+    if(wybor == "dzien")
+        return dzien;
+    return 0;
+}
+

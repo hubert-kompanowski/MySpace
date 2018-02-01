@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <ncurses.h>
 #include <string.h>
-#include <stdlib.h>
+
 
 void wyswietlanie_w_polowie(int wiersz, const char* tekst)
 {
@@ -11,7 +11,7 @@ void wyswietlanie_w_polowie(int wiersz, const char* tekst)
     mvprintw(wiersz, (kolumny / 2) - (strlen(tekst) / 2), tekst);
 }
 
-void wyswietlanie_informacji(int rozmiar, char* tablica_tekstow[rozmiar])
+void wyswietlanie_informacji(const int rozmiar, char* const tablica_tekstow[rozmiar])
 {
     initscr();
 
@@ -40,12 +40,13 @@ void wyswietlanie_nazwy(void)
 
 int obsluga_strzalek(int znak)
 {
-    if(znak == 65)
+    const int dol = 65, gora = 66, prawa = 67, lewa = 68;
+    if(znak == dol)
         return 1;
-    if(znak == 66)
+    if(znak == gora)
         return 2;
-    if(znak == 68)
+    if(znak == prawa)
         return 3;
-    if(znak == 67)
+    if(znak == lewa)
         return 4;
 }

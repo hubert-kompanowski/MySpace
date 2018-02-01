@@ -2,30 +2,30 @@
 #include <stdio.h>
 #include <string.h>
 
-int wypisywanie_elementow(void* dane, int rozmiar_danych);
+int wypisywanie_elementow(const void* dane, int rozmiar_danych);
 
 int main(void)
 {
     int suma_znakow;
 
-    char* napis = "acb xyz";
+    char* const napis = "acb xyz";
     suma_znakow = wypisywanie_elementow(napis, strlen(napis));
     printf("suma = %d\n\n", suma_znakow);
 
-    char* liczba = "123456";
+    char* const liczba = "123456";
     suma_znakow = wypisywanie_elementow(liczba, strlen(liczba));
     printf("suma = %d\n\n", suma_znakow);
 
-    char znak = 't';
+    const char znak = 't';
     suma_znakow = wypisywanie_elementow(&znak, 1);
     printf("suma = %d\n\n", suma_znakow);
 
-    int cyfra = 7;
+    const int cyfra = 7;
     suma_znakow = wypisywanie_elementow(&cyfra, 1);
     printf("suma = %d\n\n", suma_znakow);
 }
 
-int wypisywanie_elementow(void* dane, int rozmiar_danych)
+int wypisywanie_elementow(const void* dane, int rozmiar_danych)
 {
     char tablica_danych[100] = {0};
     memcpy(tablica_danych, dane, rozmiar_danych);

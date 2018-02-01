@@ -2,22 +2,18 @@
 #include "wyswietlanie.h"
 #include <stdio.h>
 #include <ncurses.h>
-#include <string.h>
-#include <stdlib.h>
 
-int menu(int ilosc_opcji, char* tablica_opcji[ilosc_opcji + 1])
+int menu(const int ilosc_opcji, char* tablica_opcji[ilosc_opcji + 1])
 {
     initscr();
     noecho();
     tablica_opcji[ilosc_opcji] = "Wyjscie";
 
-
-
     int znak = 0, strzalka, ktory = 1;
     const short int min_wybor = 1;
     const short int max_wybor = ilosc_opcji+1;
-    int znak_specjalny[2] = {27, 91};
-    int enter = 10;
+    const int znak_specjalny[2] = {27, 91};
+    const int enter = 10;
 
     do
     {  

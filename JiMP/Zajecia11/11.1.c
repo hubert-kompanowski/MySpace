@@ -11,14 +11,13 @@ void zapisywanie_w_pliku(char* nazwa_pliku, int ilosc, int* tablica_liczb_losowy
 int main(int argc, char* argv[])
 {
     srand(time(NULL));
-    int ilosc = atoi(argv[2]);
+    const int ilosc = atoi(argv[2]);
 
     if(argc != 3)
     {
         printf("Należy podać 2 argumenty (nazwe pliku oraz ilosc liczb)\n");
         return -2;
     }
- 
     
     if(ilosc > 1000000 || ilosc <=0)
     {
@@ -26,21 +25,16 @@ int main(int argc, char* argv[])
         return -1;
     }
 
-
     int tablica_liczb_losowych[ilosc];
     losowanie_liczb(ilosc, tablica_liczb_losowych);
 
     zapisywanie_w_pliku(argv[1], ilosc, tablica_liczb_losowych);
-
 }
 
 void losowanie_liczb(int ilosc, int tablica[ilosc])
 {
     for(int i=0; i<ilosc; i++)
-    {
         tablica[i] = rand()%1000;
-    }
-
 }   
 
 void zapisywanie_w_pliku(char* nazwa_pliku, int ilosc, int* tablica_liczb_losowych)

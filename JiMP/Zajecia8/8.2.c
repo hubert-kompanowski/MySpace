@@ -4,24 +4,24 @@
 #include <string.h>
 #include <ctype.h>
 
-int wyswietlanie_na_srodku(void* dana, char* rodzaj_wejscia, int zadana_dlugosc);
-void wyswietlanie_znaku(void* dana, char* rodzaj_wejscia, int zadana_dlugosc);
-void wyswietlanie_napisu(void* dana, char* rodzaj_wejscia, int zadana_dlugosc);
-void wyswietlanie_liczby(void* dana, char* rodzaj_wejscia, int zadana_dlugosc);
-void wyswietlanie_liczby_zmiennoprzecinkowej(void* dana, char* rodzaj_wejscia, int zadana_dlugosc);
+int wyswietlanie_na_srodku(const void* dana, char* const rodzaj_wejscia, const int zadana_dlugosc);
+void wyswietlanie_znaku(const void* dana, char* const rodzaj_wejscia, const int zadana_dlugosc);
+void wyswietlanie_napisu(const void* dana, char* const rodzaj_wejscia, const int zadana_dlugosc);
+void wyswietlanie_liczby(const void* dana, char* const rodzaj_wejscia, const int zadana_dlugosc);
+void wyswietlanie_liczby_zmiennoprzecinkowej(const void* dana, char* const rodzaj_wejscia, const int zadana_dlugosc);
 
 int main(void)
 {
-    int zadana_dlugosc = 30;
-    char* napis = "jakis tam napis";
-    char* napis_2 = "choinka";
-    char* napis_3 = "1234567654321";
-    char* napis_4 = "ZXZ";
-    int liczba_2 = 888888888;
-    int liczba = 333;
-    double liczba_zmeinnoprzecinkowa = 31.1315;
-    char znak = 'X';
-    char znak_2 = 'O';
+    const int zadana_dlugosc = 30;
+    char* const napis = "jakis tam napis";
+    char* const napis_2 = "choinka";
+    char* const napis_3 = "1234567654321";
+    char* const napis_4 = "ZXZ";
+    const int liczba_2 = 888888888;
+    const int liczba = 333;
+    const double liczba_zmeinnoprzecinkowa = 31.1315;
+    const char znak = 'X';
+    const char znak_2 = 'O';
 
     wyswietlanie_na_srodku(NULL, "napis", zadana_dlugosc);
     wyswietlanie_na_srodku(&znak, "znak", zadana_dlugosc);
@@ -36,7 +36,7 @@ int main(void)
     wyswietlanie_na_srodku(NULL, "znak", zadana_dlugosc);
 }
 
-int wyswietlanie_na_srodku(void* dana, char* rodzaj_wejscia, int zadana_dlugosc )
+int wyswietlanie_na_srodku(const void* dana, char* const rodzaj_wejscia, const int zadana_dlugosc)
 {
     if(dana==0)
     {
@@ -59,7 +59,7 @@ int wyswietlanie_na_srodku(void* dana, char* rodzaj_wejscia, int zadana_dlugosc 
     return 0;
 }
 
-void wyswietlanie_znaku(void* dana, char* rodzaj_wejscia, int zadana_dlugosc)
+void wyswietlanie_znaku(const void* dana, char* const rodzaj_wejscia, const int zadana_dlugosc)
 {
     int dlugosc_danej = 0;
     char wyswietlana_dana = *(char*)dana;
@@ -73,7 +73,7 @@ void wyswietlanie_znaku(void* dana, char* rodzaj_wejscia, int zadana_dlugosc)
             printf("%*c%c\n",(zadana_dlugosc/2-1),' ', wyswietlana_dana);
 }
 
-void wyswietlanie_napisu(void* dana, char* rodzaj_wejscia, int zadana_dlugosc)
+void wyswietlanie_napisu(const void* dana, char* const rodzaj_wejscia, const int zadana_dlugosc)
 {
     int dlugosc_danej = 0;
     char* wyswietlana_dana = *(char**)dana;
@@ -88,7 +88,7 @@ void wyswietlanie_napisu(void* dana, char* rodzaj_wejscia, int zadana_dlugosc)
             printf("%*c%s\n",((zadana_dlugosc-dlugosc_danej)/2),' ', wyswietlana_dana);
 }
 
-void wyswietlanie_liczby(void* dana, char* rodzaj_wejscia, int zadana_dlugosc)
+void wyswietlanie_liczby(const void* dana, char* const rodzaj_wejscia, const int zadana_dlugosc)
 {
     int dlugosc_danej = 0;
     int wyswietlana_dana = *(int*)dana;
@@ -103,10 +103,9 @@ void wyswietlanie_liczby(void* dana, char* rodzaj_wejscia, int zadana_dlugosc)
             printf("%*c%s\n",(zadana_dlugosc-dlugosc_danej-1)/2,' ',wyswietlana_dana_2);
         else
             printf("%*c%s\n",((zadana_dlugosc-dlugosc_danej)/2),' ', wyswietlana_dana_2);            
-
 }
 
-void wyswietlanie_liczby_zmiennoprzecinkowej(void* dana, char* rodzaj_wejscia, int zadana_dlugosc)
+void wyswietlanie_liczby_zmiennoprzecinkowej(const void* dana, char* const rodzaj_wejscia, const int zadana_dlugosc)
 {
     int dlugosc_danej = 0;
     double wyswietlana_dana = *(double*)dana;

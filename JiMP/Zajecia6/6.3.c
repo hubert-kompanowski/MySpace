@@ -21,11 +21,14 @@ int main(void)
     while (1)
     {   
         srand(time(NULL));
-        printf("\n               Wybierz funkcje(podaj liczbe):\n               "
-                "1.losowanie tablicy\n               2.wyswietlanie tablicy\n               "
-                "3.liczenie sredniej\n               4.liczenie mediany\n               "
-                "5.min element\n               6.maks element\n               "
-                "7.wyjscie z petli\n");
+        printf("\n               Wybierz funkcje(podaj liczbe):\n"
+                "               1.losowanie tablicy\n"
+                "               2.wyswietlanie tablicy\n"
+                "               3.liczenie sredniej\n"
+                "               4.liczenie mediany\n"
+                "               5.min element\n"
+                "               6.maks element\n"
+                "               7.wyjscie z petli\n");
 
         int numer_menu = 7; 
         scanf("%d",&numer_menu);
