@@ -1,12 +1,13 @@
 // Hubert Kompanowski - petla miesiac co 7 dni
 
 #include <stdio.h>
+#include <string.h>
 #include <time.h>
 
 void kalendarz(void);
 int ile_dni_ma_dany_miesiac(int rok, int miesiac, int dni);
 void wyswietlanie_aktualnego_misiaca_i_roku(int miesiac, int rok);
-int aktualny_rok_i_miesiac_i_dzien(char* wybor);
+int aktualny_rok_i_miesiac_i_dzien(const char* wybor);
 
 int main(void)
 {   
@@ -82,10 +83,9 @@ void wyswietlanie_aktualnego_misiaca_i_roku(int miesiac, int rok)
     char* const tablica_miesiecy[12] = {"styczen", "luty", "marzec", "kwiecien", "maj", "czerwiec", "lipiec",
                   "sierpien", "wrzesien", "pazdziernik", "listopad", "grudzien"};
     printf("       %s, %d\n", tablica_miesiecy[miesiac-1], rok);
-
 }
 
-int aktualny_rok_i_miesiac_i_dzien(char* wybor)
+int aktualny_rok_i_miesiac_i_dzien(const char* wybor)
 {
     time_t liczba_sekund;
     struct tm struktura;
@@ -96,11 +96,11 @@ int aktualny_rok_i_miesiac_i_dzien(char* wybor)
     const int miesiac = struktura.tm_mon+1;
     const int dzien = struktura.tm_mday;
     
-    if(wybor == "rok")
+    if(strcmp(wybor, "rok")==0)
         return rok;
-    if(wybor == "miesiac")
+    if(strcmp(wybor, "miesiac")==0)
         return miesiac;
-    if(wybor == "dzien")
+    if(strcmp(wybor, "dzien")==0)
         return dzien;
     return 0;
 }

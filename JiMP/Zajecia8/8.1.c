@@ -125,7 +125,7 @@ void liczenie_mediany(int* wskaznik_wartosci, int rozmiar)
 
 void sortowanie_tablicy(int* wskaznik_wartosci, int rozmiar)
 {
-    qsort(wskaznik_wartosci,rozmiar,sizeof(int), porownanie_liczb);
+    qsort(wskaznik_wartosci, rozmiar, sizeof(int), porownanie_liczb);
 }
 
 int porownanie_liczb(const void * liczba_1, const void* liczba_2)
@@ -133,8 +133,5 @@ int porownanie_liczb(const void * liczba_1, const void* liczba_2)
     if(*(int*)liczba_1 < *(int*)liczba_2) 
         return -1;
     else   
-        if(*(int*)liczba_1 == *(int*)liczba_2) 
-            return 0;
-        else 
-            return 1;
+        return (*(int*)liczba_1 != *(int*)liczba_2);
 }

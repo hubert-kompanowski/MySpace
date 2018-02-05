@@ -2,15 +2,15 @@
 
 #include <stdio.h>
 
-void sortowanie_babelkowe(int rozmiar, int* tablica[rozmiar]);
-void wyswietlanie_tablicy_A(int rozmiar, int tablica[rozmiar]);
-void wyswietlanie_tablicy_B(int rozmiar, int* tablica[rozmiar]);
+void sortowanie_babelkowe(const int rozmiar, int* tablica[rozmiar]);
+void wyswietlanie_tablicy_A(const int rozmiar, int tablica[rozmiar]);
+void wyswietlanie_tablicy_B(const int rozmiar, int* tablica[rozmiar]);
 void zamien(int *wskaznik_na_wartosc_1, int *wskaznik_na_wartosc_2);
 
 int main()
 {
     int tablica[] = {3, 5, 1, 7, 2, 8, 9, 4, 6, 0};
-    int rozmiar = sizeof(tablica) / sizeof(tablica[0]);
+    const int rozmiar = sizeof(tablica) / sizeof(tablica[0]);
     int* tablica_wskaznikow[rozmiar];
 
     for(int j=0; j<=rozmiar-1; j++)
@@ -27,7 +27,7 @@ int main()
     wyswietlanie_tablicy_B(rozmiar, tablica_wskaznikow);
 }
 
-void sortowanie_babelkowe(int rozmiar, int* tablica[rozmiar])
+void sortowanie_babelkowe(const int rozmiar, int* tablica[rozmiar])
 {
     int zamiana;
     do
@@ -45,7 +45,7 @@ void sortowanie_babelkowe(int rozmiar, int* tablica[rozmiar])
     while(zamiana!=0);
 }
 
-void wyswietlanie_tablicy_A(int rozmiar, int tablica[rozmiar])
+void wyswietlanie_tablicy_A(const int rozmiar, int tablica[rozmiar])
 {
     printf("Tablica A:\n[");
     for(int j=0; j<=rozmiar-1; j++)
@@ -55,7 +55,7 @@ void wyswietlanie_tablicy_A(int rozmiar, int tablica[rozmiar])
     printf("\b\b]\n");
 }
 
-void wyswietlanie_tablicy_B(int rozmiar, int* tablica[rozmiar])
+void wyswietlanie_tablicy_B(const int rozmiar, int* tablica[rozmiar])
 {
     printf("Tablica B (wartosci wskazywane przez wskazniki):\n[");
     for(int j=0; j<=rozmiar-1; j++)

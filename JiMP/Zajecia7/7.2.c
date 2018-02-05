@@ -18,7 +18,7 @@ int main()
     printf("\nkrotszy bok = %d, dluzszy bok = %d\n", bok_1, bok_2);
 }
 
-void scanfo_printf(char* tekst, int ilosc_argumentow, int tablica[ilosc_argumentow])
+void scanfo_printf(char* const tekst, int ilosc_argumentow, int tablica[ilosc_argumentow])
 { 
     int j = 0;
     for(int i = 0; tekst[i]; i++)
@@ -37,7 +37,7 @@ void scanfo_printf(char* tekst, int ilosc_argumentow, int tablica[ilosc_argument
     }
 }
 
-void scanfo_printf_2_0(char* tekst, ...)
+void scanfo_printf_2_0(char* const tekst, ...)
 {
     va_list element;
     va_start(element, tekst);
